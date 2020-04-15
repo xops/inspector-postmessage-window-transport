@@ -1,3 +1,10 @@
+# 1.0.0 (2020-04-15)
+
+
+### Features
+
+* initial commit ([fe4d473](https://github.com/xops/inspector-postmessage-window-transport/commit/fe4d473b8bae4206c51cb649ae67be3d5485d415))
+
 # 1.0.0 (2020-03-27)
 
 
