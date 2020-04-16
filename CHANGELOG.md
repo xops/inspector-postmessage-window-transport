@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/xops/inspector-postmessage-window-transport/compare/1.0.0...1.0.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* deps ([bbe8f60](https://github.com/xops/inspector-postmessage-window-transport/commit/bbe8f60f9faf599c414859cf58c0baf2f0863e23))
+
 # 1.0.0 (2020-04-15)
 
 
