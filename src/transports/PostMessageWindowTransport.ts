@@ -1,6 +1,18 @@
 import { Transport } from "@open-rpc/client-js/build/transports/Transport";
 import { JSONRPCRequestData, IJSONRPCData } from "@open-rpc/client-js/build/Request";
-import { JSONRPCError } from "@open-rpc/client-js";
+
+const openPopup = (url: string) => {
+  const width = 400;
+  const height = window.screen.height;
+  const left = 0;
+  const top = 0;
+
+  return window.open(
+    url,
+    "inspector:popup",
+    `left=${left},top=${top},width=${width},height=${height},resizable,scrollbars=yes,status=1`,
+  );
+};
 
 class PostMessageWindowTransport extends Transport {
   public uri: string;
@@ -17,33 +29,26 @@ class PostMessageWindowTransport extends Transport {
       if (!urlRegex.test(this.uri)) {
         reject(new Error("Bad URI"));
       }
-      this.frame = window.open(this.uri, "_blank");
+      this.frame = openPopup(this.uri);
+      window.addEventListener("message", (ev: MessageEvent) => {
+        if (ev.origin === window.origin) {
+          return;
+        }
+        this.transportRequestManager.resolveResponse(JSON.stringify(ev.data));
+      });
       setTimeout(() => {
         resolve(true);
-      }, 1000);
+      }, 3000);
     });
   }
 
   public async sendData(data: JSONRPCRequestData, timeout: number | undefined = 5000): Promise<any> {
-    return new Promise((resolve, reject) => {
-      if (!this.frame) {
-        return;
-      }
-      this.frame.postMessage((data as IJSONRPCData).request, this.uri);
-      const handleMessage = (ev: MessageEvent) => {
-        if (ev.origin === window.origin) {
-          return;
-        }
-        window.removeEventListener("message", handleMessage);
-        if (ev.data.error) {
-          reject(new JSONRPCError(ev.data.error.message, ev.data.error.code, ev.data.error.data));
-        }
-        if (ev.data.id === (data as IJSONRPCData).request.id) {
-          resolve(ev.data.result);
-        }
-      };
-      window.addEventListener("message", handleMessage, false);
-    });
+    const prom = this.transportRequestManager.addRequest(data, undefined);
+    if (!this.frame) {
+      return;
+    }
+    this.frame.postMessage((data as IJSONRPCData).request, this.uri);
+    return prom;
   }
 
   public close(): void {
@@ -51,6 +56,7 @@ class PostMessageWindowTransport extends Transport {
       this.frame.close();
     }
   }
+
 }
 
 export default PostMessageWindowTransport;

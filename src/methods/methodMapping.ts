@@ -6,7 +6,6 @@ export interface IMethodMapping {
 }
 
 let transport: PostMessageWindowTransport | undefined;
-let internalID = 0;
 
 const connect: Connect = async (uri) => {
   transport = new PostMessageWindowTransport(uri);
@@ -19,7 +18,7 @@ const sendData: SendData = (data) => {
     throw new Error("Not Connected");
   }
   return transport.sendData({
-    internalID: internalID++,
+    internalID: data.id,
     request: data,
   });
 };
