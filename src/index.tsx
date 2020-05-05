@@ -33,7 +33,7 @@ window.addEventListener("message", async (ev: MessageEvent) => {
     (ev.source as any).postMessage({
       jsonrpc: "2.0",
       error: {
-        code: 32329,
+        code: -32000,
         message: e.message,
       },
       id: ev.data.id,
