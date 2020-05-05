@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/xops/inspector-postmessage-window-transport/compare/1.0.3...1.0.4) (2020-05-05)
+
+
+### Bug Fixes
+
+* server error code ([c0d10e6](https://github.com/xops/inspector-postmessage-window-transport/commit/c0d10e6526c52e5297cf5df3881abb3448481a3b))
+
 ## [1.0.3](https://github.com/xops/inspector-postmessage-window-transport/compare/1.0.2...1.0.3) (2020-05-05)
 
 
