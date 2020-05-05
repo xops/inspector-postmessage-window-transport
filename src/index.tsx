@@ -16,7 +16,7 @@ window.addEventListener("message", async (ev: MessageEvent) => {
     window.parent.postMessage({
       jsonrpc: "2.0",
       error: {
-        code: 32009,
+        code: -32601,
         message: "Method not found",
       },
       id: ev.data.id,
