@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/xops/inspector-postmessage-window-transport/compare/1.0.1...1.0.2) (2020-05-05)
+
+
+### Bug Fixes
+
+* simplify postmessage window transport ([77dfbb8](https://github.com/xops/inspector-postmessage-window-transport/commit/77dfbb8edbe03715968235875ff1a50c01232644))
+
 ## [1.0.1](https://github.com/xops/inspector-postmessage-window-transport/compare/1.0.0...1.0.1) (2020-04-16)
 
 
