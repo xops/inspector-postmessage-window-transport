@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/xops/inspector-postmessage-window-transport/compare/1.0.2...1.0.3) (2020-05-05)
+
+
+### Bug Fixes
+
+* method not found code ([a24f3f7](https://github.com/xops/inspector-postmessage-window-transport/commit/a24f3f70c0c5458efac049e8768bcb130d5f9510))
+
 ## [1.0.2](https://github.com/xops/inspector-postmessage-window-transport/compare/1.0.1...1.0.2) (2020-05-05)
 
 
