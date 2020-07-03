@@ -1,3 +1,8 @@
+# Deprecated:
+
+This is now archived and the postmessage window transport is built into `@open-rpc/client-js` and the inspector uses it natively.
+
+
 # Inspector Postmessage Window Transport Plugin
 
 This adds `window.open` + `postMessage` support to the [OpenRPC inspector](http://inspector.open-rpc.org).
